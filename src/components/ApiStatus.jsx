@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { AiOutlineReload } from "react-icons/ai";
 import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 
@@ -20,7 +21,10 @@ const ApiStatus = ({ apiUrl, apiName }) => {
         const endTime = performance.now();
         const duration = endTime - startTime;
         const maxResponseTime = 1000; // Tempo máximo esperado em milissegundos
-        const progressPercentage = (duration / maxResponseTime) * 100;
+        let progressPercentage = (duration / maxResponseTime) * 100;
+        if (progressPercentage > 100) {
+          progressPercentage = 100; // Limitando a porcentagem a 100%
+        }
         setProgress(progressPercentage);
 
         // Definindo a cor do card com base na porcentagem de progresso
@@ -64,9 +68,13 @@ const ApiStatus = ({ apiUrl, apiName }) => {
   }, [apiUrl, apiName]);
 
   return (
-    <div className="flex items-center justify-center p-2 rounded-lg">
-      <div
-        className={`p-6 rounded-lg shadow-md w-[400px] h-[220px] ${cardColor} transition-colors duration-300 ease-in-out transform hover:scale-105`}
+    <motion.div
+      className="flex items-center justify-center p-2 rounded-lg"
+      whileHover={{ scale: 1.05 }}
+    >
+      <motion.div
+        className={`p-6 rounded-lg shadow-md w-[400px] h-[220px] ${cardColor}`}
+        transition={{ duration: 0.3 }}
       >
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg font-semibold">{apiName}</h2>
@@ -85,15 +93,16 @@ const ApiStatus = ({ apiUrl, apiName }) => {
           <p className="text-sm mt-2">Saúde: {status.health}</p>
         </div>
         <div className="mt-4 flex justify-between items-center">
-          <div className="w-full mr-4">
-            <div className="relative w-full h-2 bg-gray-200 rounded-full">
-              <div
-                className="absolute left-0 top-0 h-full rounded-full"
+          <div className="w-full">
+            <div className="h-[0.60rem] bg-gray-200 rounded-full">
+              <motion.div
+                className="h-full rounded-full"
                 style={{ width: `${progress}%`, backgroundColor: "#4CAF50" }}
+                transition={{ ease: "easeOut", duration: 1 }}
               />
             </div>
+            <span className="text-sm">{Math.round(progress)}%</span>
           </div>
-          <span className="text-sm">{Math.round(progress)}%</span>
         </div>
         <button
           onClick={fetchApiStatus}
@@ -102,8 +111,8 @@ const ApiStatus = ({ apiUrl, apiName }) => {
           <AiOutlineReload className="w-5 h-5 mr-1" />
           Atualizar status
         </button>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
