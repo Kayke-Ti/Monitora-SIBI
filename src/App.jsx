@@ -7,7 +7,7 @@ const App = () => {
     <div className="bg-zinc-200 h-screen">
       <div className="container mx-auto py-8">
         <div className="flex items-center justify-between max-sm:justify-center">
-          <h1 className="text-4xl font-bold text-center text-gray-900 mb-8">
+          <h1 className="text-4xl font-bold text-center text-gray-900 mb-8 ml-2">
             Monitora - SIBI
           </h1>
 
