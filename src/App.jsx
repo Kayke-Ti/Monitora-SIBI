@@ -4,7 +4,7 @@ import "./App.css";
 
 const App = () => {
   return (
-    <div className="bg-zinc-100 h-screen">
+    <div className="bg-zinc-200 h-screen">
       <div className="container mx-auto py-8">
         <div className="flex items-center justify-between max-sm:justify-center">
           <h1 className="text-4xl font-bold text-center text-gray-900 mb-8">
