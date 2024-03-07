@@ -40,11 +40,11 @@ const ApiStatus = ({ apiUrl, apiName }) => {
         }
 
         // Avaliando a saúde com base no tempo de resposta
-        if (progressPercentage < 20) {
+        if (progressPercentage < 25) {
           setHealthRating("Muito Ruim");
-        } else if (progressPercentage < 40) {
+        } else if (progressPercentage < 50) {
           setHealthRating("Ruim");
-        } else if (progressPercentage < 60) {
+        } else if (progressPercentage < 75) {
           setHealthRating("Regular");
         } else {
           setHealthRating("Bom");
