@@ -12,6 +12,7 @@ const ApiStatus = ({ apiUrl, apiName }) => {
   const [progress, setProgress] = useState(0);
   const [loading, setLoading] = useState(true);
   const [cardColor, setCardColor] = useState("bg-gray-200");
+  const [healthRating, setHealthRating] = useState("");
 
   const fetchApiStatus = () => {
     setStatus({ message: "Atualizando...", isOnline: false });
@@ -36,6 +37,17 @@ const ApiStatus = ({ apiUrl, apiName }) => {
           setCardColor("bg-yellow-200");
         } else {
           setCardColor("bg-green-200");
+        }
+
+        // Avaliando a saúde com base no tempo de resposta
+        if (progressPercentage < 20) {
+          setHealthRating("Muito Ruim");
+        } else if (progressPercentage < 40) {
+          setHealthRating("Ruim");
+        } else if (progressPercentage < 60) {
+          setHealthRating("Regular");
+        } else {
+          setHealthRating("Bom");
         }
 
         setTimeout(() => setLoading(false), 2000);
@@ -90,7 +102,7 @@ const ApiStatus = ({ apiUrl, apiName }) => {
         </div>
         <div>
           <p className="text-sm">{status.message}</p>
-          <p className="text-sm mt-2">Saúde: {status.health}</p>
+          <p className="text-sm mt-2">Saúde: {healthRating}</p>
         </div>
         <div className="mt-4 flex justify-between items-center">
           <div className="w-full">
