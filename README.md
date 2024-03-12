@@ -1,6 +1,6 @@
-# SIBI - Sistema de Monitoramento de APIs
+# MONITORA SIBI - Sistema de Monitoramento de APIs
 
-Este projeto consiste no desenvolvimento de um sistema de monitoramento para APIs, denominado SIBI (Sistema de Monitoramento de APIs), utilizando tecnologias modernas como React, Tailwind CSS, Frame Motion, Axios, entre outras.
+Este projeto consiste no desenvolvimento de um sistema de monitoramento para APIs, denominado MONITORA - SIBI (Sistema de Monitoramento de APIs), utilizando tecnologias modernas como React, Tailwind CSS, Frame Motion, Axios, entre outras.
 
 ## Sobre o Projeto
 
