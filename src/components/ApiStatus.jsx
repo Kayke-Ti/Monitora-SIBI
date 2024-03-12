@@ -85,7 +85,7 @@ const ApiStatus = ({ apiUrl, apiName }) => {
       whileHover={{ scale: 1.05 }}
     >
       <motion.div
-        className={`p-6 rounded-lg shadow-md w-[400px] h-[220px] ${cardColor}`}
+        className={`p-6 rounded-lg shadow-md w-[400px] h-[230px] ${cardColor}`}
         transition={{ duration: 0.3 }}
       >
         <div className="flex justify-between items-center mb-4">
