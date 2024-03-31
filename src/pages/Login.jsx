@@ -51,7 +51,7 @@ const Login = ({ onLogin }) => {
 
   return (
     <>
-      <Header />
+      <Header isLoginPage={true} />
       <motion.div
         className="flex justify-center items-center mt-20"
         id="background"
