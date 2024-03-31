@@ -139,7 +139,7 @@ const Home = () => {
           ) : (
             <canvas
               id="responseTimeChart"
-              style={{ width: "100%", height: "100px" }}
+              style={{ width: "100%", height: "300px" }}
             ></canvas>
           )}
         </div>
